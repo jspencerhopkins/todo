@@ -22,16 +22,22 @@
 						
 			<% @all_items.each do |item| %>
 
-			<li>
-				<div class="view">					
-					<input class="toggle" type="checkbox">
-						<label><%= item.description %></label>
-						<button class="destroy"></button>
-						<br>
+			<li <%= 'class=completed' if item.complete? %>>
+				<div class="view">	
+					<%= form_for item do |f| %>
+						<%= f.check_box :complete, {:class => "toggle"} %>
+						<%= f.submit "Update Complete" %>
+					<% end %>
+					<!--<input class="toggle" type="checkbox">-->
+					<label><%= item.description %></label>
+					<button class="destroy"></button>
+					<br>
 			</li>
 			<% end %>
 
 		</ul>
+
+
 
 
 		<!--
