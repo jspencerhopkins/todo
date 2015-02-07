@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
 	 	redirect_to root_url
 	end
 
+	def edit
+		@item = Item.find(params[:id])
+	end
+
 
 
 	private

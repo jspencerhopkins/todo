@@ -169,6 +169,10 @@ label[for='toggle-all'] {
 	border-bottom: 1px solid #ededed;
 }
 
+#todo-list li a {
+	font-size: 12px;
+}
+
 #todo-list li:last-child {
 	border-bottom: none;
 }
