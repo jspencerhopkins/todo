@@ -14,59 +14,37 @@
 	<!-- This section should be hidden by default and shown when there are todos -->
 	<section id="main">
 
-	  
+	  <!--
 		<input id="toggle-all" type="checkbox">
 			<label for="toggle-all">Mark all as complete</label>
+		-->
 
 		<ul id="todo-list">
 						
 			<% @all_items.each do |item| %>
 
-			<li <%= 'class=completed' if item.complete? %>>
-				<div class="view">	
-					<%= form_for item do |f| %>
-						<%= f.check_box :complete, {:class => "toggle"} %>
-						<%= f.submit "Complete?" %>
-					<% end %>
-					<!--<input class="toggle" type="checkbox">-->
-					<label><%= item.description %></label>
-					<%= link_to 'Edit Task', edit_item_path(item, ) %>
-					<button class="destroy"></button>
-					<br>
-			</li>
+				<li <%= 'class=completed' if item.complete? %>>
+					<div class="view">	
+						
+						<%= form_for item do |f| %>
+							<%= f.check_box :complete, {:class => "toggle"} %>
+							<%= f.submit "Complete?" %>
+						<% end %>
+						
+						<label><%= item.description %></label>
+
+						<%= link_to 'Edit Task', edit_item_path(item) %>
+						<button class="destroy"></button>
+						<br><br>
+
+					</div>	
+				</li>
+
 			<% end %>
 
 		</ul>
 
-
-
-
-		<!--
-		<ul id="todo-list">
-						
-			<li class="completed">
-				<div class="view">
-					<input class="toggle" type="checkbox" checked>
-					<label>Taste JavaScript</label>
-					<button class="destroy"></button>
-				</div>
-				<input class="edit" value="Create a TodoMVC template">
-			</li>
-
-			<li>
-				<div class="view">
-					<input class="toggle" type="checkbox">
-					<label>Buy a unicorn</label>
-					<button class="destroy"></button>
-				</div>
-				<input class="edit" value="Rule the web">
-			</li>
-
-		</ul>
-				-->
 	</section>
-
-
 
 	<!-- This footer should hidden by default and shown when there are todos -->
 	<footer id="footer">
