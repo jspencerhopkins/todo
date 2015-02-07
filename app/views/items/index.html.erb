@@ -6,7 +6,7 @@
 		
 		<%= form_for @items do |f| %>
 			<%= f.text_field :description, placeholder: "What needs to be done?", id:"new-todo", autofocus: true %>
-			<%= f.submit id:"create-button" %>
+			<%= f.submit "Add Task", id:"create-button" %>
 		<% end %>
 
 	</header>
@@ -26,7 +26,7 @@
 				<div class="view">	
 					<%= form_for item do |f| %>
 						<%= f.check_box :complete, {:class => "toggle"} %>
-						<%= f.submit "Update Complete" %>
+						<%= f.submit "Complete?" %>
 					<% end %>
 					<!--<input class="toggle" type="checkbox">-->
 					<label><%= item.description %></label>
