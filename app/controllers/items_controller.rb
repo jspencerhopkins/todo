@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
 	def index
 		@items = Item.new
-		@all = Item.all
+		@all_items = Item.all
 	end
 
 	def create

@@ -11,15 +11,27 @@
 
 	</header>
 
-
 	<!-- This section should be hidden by default and shown when there are todos -->
 	<section id="main">
 
-		<!--    -->
+		<!--    
 		<input id="toggle-all" type="checkbox">
-		<label for="toggle-all">Mark all as complete</label>
-		
+			<label for="toggle-all">Mark all as complete</label>
+		-->
+		<ul id="todo-list">
+						
+			<% @all_items.each do |item| %>
 
+			<li>
+				<div class="view">					
+					<input class="toggle" type="checkbox">
+						<label><%= item.description %></label>
+						<button class="destroy"></button>
+						<br>
+			</li>
+			<% end %>
+
+		</ul>
 
 
 		<!--
