@@ -1,5 +1,5 @@
 class AddCompletedToItems < ActiveRecord::Migration
   def change
-  	add_column :items, :completed, :boolean
+  	add_column :items, :complete, :boolean
   end
 end
