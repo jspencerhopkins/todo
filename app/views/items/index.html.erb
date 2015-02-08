@@ -33,8 +33,10 @@
 						
 						<label><%= item.description %></label>
 
-						<%= link_to 'Edit Task', edit_item_path(item) %>
-						<button class="destroy"></button>
+						<%= link_to 'Edit Task', edit_item_path(item), method: :get %>
+						<%= link_to 'Delete Task', item,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
 						<br><br>
 
 					</div>	
