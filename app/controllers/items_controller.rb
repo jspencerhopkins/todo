@@ -27,6 +27,11 @@ class ItemsController < ApplicationController
 		redirect_to root_url
 	end
 
+	def active
+	end
+
+	def completed
+	end
 
 	private
 	def item_params
