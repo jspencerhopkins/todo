@@ -1,40 +1,22 @@
-
-
-	<!-- This section should be hidden by default and shown when there are todos -->
-	<section id="main">
-
-	  <!--
-		<input id="toggle-all" type="checkbox">
-			<label for="toggle-all">Mark all as complete</label>
-		-->
-
-		<ul id="todo-list">
-						
-			<% @all_items.each do |item| %>
-
-				<li <%= 'class=completed' if item.complete? %>>
-					<div class="view">	
-						
-						<%= form_for item do |f| %>
-							<%= f.check_box :complete, {:class => "toggle"} %>
-							<%= f.submit "Complete?" %>
-						<% end %>
-						
-						<label><%= item.description %></label>
-
-						<%= link_to 'Edit Task', edit_item_path(item), method: :get %>
-						<%= link_to 'Delete Task', item,
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-						<br><br>
-
-					</div>	
-				</li>
-
+<% @all_items.each do |item| %>
+	<li <%= 'class=completed' if item.complete? %>>
+		<div class="view">	
+	
+			<%= form_for item do |f| %>
+				<%= f.check_box :complete, {:class => "toggle"} %>
+				<%= f.submit "Complete?" %>
 			<% end %>
+	
+			<label><%= item.description %></label>
 
-		</ul>
+			<%= link_to 'Edit Task', edit_item_path(item), method: :get %>
+			<%= link_to 'Delete Task', item,
+		     method: :delete,
+		     data: { confirm: 'Are you sure?' } %>
+			<br><br>
 
-	</section>
+		</div>	
+	</li>
+<% end %>
 
 	

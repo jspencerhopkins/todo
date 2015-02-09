@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
 	end
 
 	def completed
+		@all_completed = Item.where(complete: true)
 	end
 
 	private
