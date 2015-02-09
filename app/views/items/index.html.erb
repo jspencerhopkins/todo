@@ -1,0 +1,22 @@
+<% @all_items.each do |item| %>
+	<li <%= 'class=completed' if item.complete? %>>
+		<div class="view">	
+	
+			<%= form_for item do |f| %>
+				<%= f.check_box :complete, {:class => "toggle"} %>
+				<%= f.submit "Complete?" %>
+			<% end %>
+	
+			<label><%= item.description %></label>
+
+			<%= link_to 'Edit Task', edit_item_path(item), method: :get %>
+			<%= link_to 'Delete Task', item,
+		     method: :delete,
+		     data: { confirm: 'Are you sure?' } %>
+			<br><br>
+
+		</div>	
+	</li>
+<% end %>
+
+	

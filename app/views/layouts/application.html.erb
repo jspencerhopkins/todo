@@ -8,7 +8,73 @@
 </head>
 <body>
 
-<%= yield %>
+	<section id="todoapp">
+		<header id="header">
+			
+			<h1>todos</h1>
+			
+			<%= form_for Item.new do |f| %>
+				<%= f.text_field :description, placeholder: "What needs to be done?", id:"new-todo", autofocus: true %>
+				<%= f.submit "Add Task", id:"create-button" %>
+			
+			<% end %>
+		</header>
+
+		<section id="main">
+
+		  <!--
+			<input id="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+			-->
+
+			<ul id="todo-list">
+
+				<%= yield %>
+
+			</ul>
+
+	</section>
+
+	<% if Item.count == 0 %>
+
+		<% else %>
+
+			<footer id="footer">
+
+				<span id="todo-count">
+					<strong><%= Item.where(complete: false || nil).count %></strong> 
+					<% if Item.where(complete: false || nil).count == 1 %>
+						item
+					<% else %>
+						items
+					<% end %>
+					left 
+				</span>
+
+				<ul id="filters">
+					<li>
+						<%= link_to "All", root_path %>
+					</li>
+					<li>
+						<%= link_to "Active", active_path %>
+					</li>
+					<li>
+						<%= link_to "Completed", completed_path %>
+					</li>
+				</ul>
+
+				<button id="clear-completed"></button>
+			</footer>
+
+		<% end %>
+
+	</section>
+
+
+<footer id="info">
+	<p>Created by J. Spencer Hopkins</p>
+	<p>Copyright &copy; <%= Date.today.year %></p>
+</footer>
 
 </body>
 </html>
