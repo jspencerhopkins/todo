@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 	def index
 		@items = Item.new
 		@all_items = Item.all
+		@itemCount = Item.count
 	end
 
 	def create
