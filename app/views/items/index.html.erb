@@ -48,31 +48,37 @@
 
 	</section>
 
-	<!-- This footer should hidden by default and shown when there are todos -->
-	<footer id="footer">
-		<!-- This should be `0 items left` by default -->
-		<span id="todo-count">
-			<strong><%= Item.count %></strong> 
-			<% if Item.count == 1 %>
-				item
-			<% else %>
-				items
-			<% end %>
-			left 
-		</span>
-		<!-- Remove this if you don't implement routing -->
-		<ul id="filters">
-			<li>
-				<%= link_to "All", root_path %>
-			</li>
-			<li>
-				<%= link_to "Active", active_path %>
-			</li>
-			<li>
-				<%= link_to "Completed", completed_path %>
-			</li>
-		</ul>
-		<!-- Hidden if no completed items are left ↓ -->
-		<button id="clear-completed"></button>
-	</footer>
+	<% if Item.count == 0 %>
+
+	<% else %>
+
+		<footer id="footer">
+
+			<span id="todo-count">
+				<strong><%= Item.where(complete: false || nil).count %></strong> 
+				<% if Item.where(complete: false || nil).count == 1 %>
+					item
+				<% else %>
+					items
+				<% end %>
+				left 
+			</span>
+
+			<ul id="filters">
+				<li>
+					<%= link_to "All", root_path %>
+				</li>
+				<li>
+					<%= link_to "Active", active_path %>
+				</li>
+				<li>
+					<%= link_to "Completed", completed_path %>
+				</li>
+			</ul>
+
+			<button id="clear-completed"></button>
+		</footer>
+
+	<% end %>
+
 </section>
