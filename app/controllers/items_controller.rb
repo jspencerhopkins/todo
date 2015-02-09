@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 	end
 
 	def active
+		@all_active = Item.where(complete: false || nil)
 	end
 
 	def completed
